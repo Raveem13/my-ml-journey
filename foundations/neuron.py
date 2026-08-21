@@ -10,13 +10,15 @@ class Solution:
         # activation: "sigmoid" or "relu"
         #
         # Pre-activation: z = dot(x, w) + b
-        z = np.sum(np.matmul(x,w)) + b
+        z = np.dot(x,w) + b
         # Sigmoid: σ(z) = 1 / (1 + exp(-z))
         if activation == "sigmoid":
             output = 1 / (1 + np.exp(-z))
-        else:
+        elif activation == "relu":
         # ReLU: max(0, z)
-            output = np.maximum(0,z)
+            output = max(0.0,z)
         # return round(your_answer, 5)
+        else:
+            output = z
         return np.round(output, 5)
         pass
