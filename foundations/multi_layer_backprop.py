@@ -35,7 +35,7 @@ class Solution:
         dz1 = da1 * (z1 > 0).astype(float)
 
         db1 = dz1
-        dW1 = dz1.reshape(-1,1) @ x.reshape(1,-1)
+        dW1 = dz1.reshape(-1,1) * x.reshape(1,-1)
         # Return dict with keys:
         #   'loss':  float (MSE loss, rounded to 4 decimals)
         #   'dW1':   2D list (gradient w.r.t. W1, rounded to 4 decimals)
