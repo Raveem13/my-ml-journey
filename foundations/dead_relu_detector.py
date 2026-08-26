@@ -38,7 +38,6 @@ class Solution:
                         return 'reduce_learning_rate'
                 else:
                     break
-            
         # 4. 'healthy' if max dead fraction < 0.1
         if max(dead_fractions) < 0.1:
             return 'healthy'
