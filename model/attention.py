@@ -35,5 +35,5 @@ class SingleHeadAttention(nn.Module):
         # print(scores)
         # 5. Return (scores @ V) rounded to 4 decimal places
         out = scores @ values
-        # print(out)
+        print(out)
         return torch.round(out, decimals=4)
