@@ -10,10 +10,10 @@ class MultiHeadedSelfAttention(nn.Module):
         # Create num_heads SingleHeadAttention instances using nn.ModuleList
         # Each head size = attention_dim // num_heads
         # Use: self.SingleHeadAttention(embedding_dim, head_size)
-        self.attn_heads = nn.ModuleList([
-            self.SingleHeadAttention(embedding_dim, (attention_dim // num_heads))
-            for head in range(num_heads)
-        ])
+        self.attn_heads = nn.ModuleList()
+        for head in range(num_heads):
+            single_head = self.SingleHeadAttention(embedding_dim, (attention_dim // num_heads))
+            self.attn_heads.append(single_head)
         # After the heads, add an output projection: nn.Linear(attention_dim, attention_dim, bias=False)
         self.proj_out = nn.Linear(attention_dim, attention_dim, bias=False)
 
