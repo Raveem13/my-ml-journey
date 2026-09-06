@@ -9,11 +9,16 @@ class Solution:
         # 2. For each merge step:
         for m in range(num_merges):
         #    a. Count frequency of all adjacent token pairs
+            if len(tokens) < 2:
+                break
             count = {}
             for i in range(len(tokens)-1):
                 pair = (tokens[i], tokens[i+1])
                 count[pair] = count.get(pair, 0) + 1
             # print(count)
+
+            if not count:
+                break
         #    b. Find the most frequent pair (break ties lexicographically)
             max_count = max(count.values())
             candidates = sorted([p for p, c in count.items() if c == max_count])
