@@ -38,7 +38,7 @@ class Solution:
                     best = substring
                     print(best)
                     break
-            if best == None:
+            if best is None:
                 i += 1
             else:
                 tokens.append(best)
