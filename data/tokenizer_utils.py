@@ -33,10 +33,10 @@ class Solution:
         while i < len(text):
             for l in range(len(text), 0, -1):
                 substring = text[i:i+l]
-                # print(substring)
+                print(substring)
                 if substring in vocab:
                     best = substring
-                    print(best)
+                    # print(best)
                     break
             if best is None:
                 i += 1
