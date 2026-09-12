@@ -18,8 +18,8 @@ class Solution:
             logits = model(X)
             # print(logits)
             B, T, C = logits.shape
-            logits_flat = logits.view(B*T, C)
-            targets_flat = Y.view(B*T)
+            logits_flat = logits.reshape(B*T, C)
+            targets_flat = Y.reshape(B*T)
 
             loss = F.cross_entropy(logits_flat, targets_flat)
         # sample batches from data, run forward/backward, update weights.
